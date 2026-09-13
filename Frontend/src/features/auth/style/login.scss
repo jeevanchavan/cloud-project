@@ -1,0 +1,324 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0B0B0F;
+    padding: 24px;
+    position: relative;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 980px;
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    background: #121217;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Left Hero Side ── */
+.auth-hero {
+    position: relative;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #15151D;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__logo-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: #8B5CF6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+
+    &__logo-text {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 36px;
+        margin-bottom: 24px;
+    }
+
+    &__badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #8B5CF6;
+        background: rgba(139, 92, 246, 0.12);
+        border: 1px solid rgba(139, 92, 246, 0.24);
+        padding: 4px 10px;
+        border-radius: 6px;
+        width: fit-content;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+    }
+
+    &__subtitle {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #A1A1AA;
+        max-width: 400px;
+    }
+
+    &__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    &__chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 8px;
+        background: #18181F;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #A1A1AA;
+        font-size: 0.82rem;
+        font-weight: 500;
+    }
+}
+
+/* ── Right Form Side ── */
+.auth-form-side {
+    padding: 48px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #121217;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: 0.88rem;
+            color: #A1A1AA;
+            line-height: 1.5;
+        }
+    }
+
+    &__error {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.25);
+        color: #F87171;
+        font-size: 0.84rem;
+        line-height: 1.4;
+
+        svg {
+            flex-shrink: 0;
+            color: #EF4444;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__submit-btn {
+        width: 100%;
+        padding: 11px 16px;
+        font-size: 0.92rem;
+        margin-top: 6px;
+        font-weight: 600;
+    }
+
+    &__spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        display: inline-block;
+    }
+
+    &__footer {
+        font-size: 0.85rem;
+        color: #71717A;
+        text-align: center;
+
+        a {
+            font-weight: 500;
+            color: #8B5CF6;
+            margin-left: 4px;
+            text-decoration: none;
+
+            &:hover {
+                color: #A78BFA;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* ── Form Group Styles ── */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &__label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #D4D4D8;
+    }
+
+    &__input-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px 14px;
+        background: #18181F;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        color: #FFFFFF;
+        font-size: 0.88rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.15s ease;
+
+        &::placeholder {
+            color: #71717A;
+        }
+
+        &:focus {
+            border-color: #8B5CF6;
+        }
+    }
+
+    &__toggle-btn {
+        position: absolute;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #71717A;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        border-radius: 4px;
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: #D4D4D8;
+        }
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .auth-page {
+        padding: 16px;
+    }
+
+    .auth-container {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        min-height: auto;
+    }
+
+    .auth-hero {
+        padding: 28px 24px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        &__content {
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
+
+    .auth-form-side {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-page {
+        padding: 12px;
+    }
+
+    .auth-container {
+        border-radius: 12px;
+    }
+
+    .auth-hero {
+        padding: 20px 16px;
+    }
+
+    .auth-form-side {
+        padding: 20px 16px;
+    }
+}

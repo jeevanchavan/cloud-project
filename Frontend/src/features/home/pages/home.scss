@@ -1,0 +1,507 @@
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #0B0B0F;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.dashboard-main {
+    flex: 1;
+    min-width: 0; /* Prevent flex overflow */
+    padding: 36px 48px 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    overflow-y: auto;
+}
+
+/* ── Top Greeting Header ── */
+.dash-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &__greeting {
+        font-size: 1.85rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: 0.92rem;
+        color: #A1A1AA;
+        margin: 0;
+        max-width: 600px;
+        line-height: 1.5;
+    }
+}
+
+/* ── "What's Your Vibe?" Mood Selector ── */
+.vibe-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        letter-spacing: -0.01em;
+        margin: 0;
+    }
+
+    &__pills {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    &__pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px;
+        border-radius: 8px;
+        background: #18181F;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #D4D4D8;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition: all 0.15s ease;
+
+        &:hover {
+            color: #FFFFFF;
+            background: #20202B;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        &.active {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: #8B5CF6;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        &--happy.active {
+            border-color: #4ADE80;
+            background: rgba(74, 222, 128, 0.12);
+        }
+
+        &--sad.active {
+            border-color: #60A5FA;
+            background: rgba(96, 165, 250, 0.12);
+        }
+
+        &--surprised.active {
+            border-color: #FB923C;
+            background: rgba(251, 146, 60, 0.12);
+        }
+    }
+
+    &__emoji {
+        font-size: 1.1rem;
+    }
+
+    &__name {
+        letter-spacing: -0.01em;
+    }
+}
+
+/* ── Hero "Your Mood Match" Recommendation Card ── */
+.hero-match {
+    background: #18181F;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+
+    &__artwork-wrap {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #0B0B0F;
+    }
+
+    &__artwork {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #8B5CF6;
+        background: rgba(139, 92, 246, 0.12);
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        padding: 3px 8px;
+        border-radius: 6px;
+        width: fit-content;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        letter-spacing: -0.01em;
+        margin: 0;
+        line-height: 1.25;
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__artist {
+        font-size: 0.85rem;
+        color: #A1A1AA;
+        margin: 0;
+    }
+
+    &__mood-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 2px 8px;
+        border-radius: 6px;
+
+        &--happy {
+            background: rgba(74, 222, 128, 0.12);
+            color: #4ADE80;
+            border: 1px solid rgba(74, 222, 128, 0.25);
+        }
+
+        &--sad {
+            background: rgba(96, 165, 250, 0.12);
+            color: #60A5FA;
+            border: 1px solid rgba(96, 165, 250, 0.25);
+        }
+
+        &--surprised {
+            background: rgba(251, 146, 60, 0.12);
+            color: #FB923C;
+            border: 1px solid rgba(251, 146, 60, 0.25);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 4px;
+        flex-wrap: wrap;
+    }
+
+    &__play-btn {
+        padding: 10px 20px;
+        font-size: 0.88rem;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__next-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #D4D4D8;
+        padding: 9px 16px;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.15s ease;
+
+        &:hover {
+            background: #20202B;
+            color: #FFFFFF;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+/* ── AI Scanner Section ── */
+.scanner-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ── Song Library Section ── */
+.library-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__title-wrap {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        span {
+            font-size: 0.82rem;
+            color: #71717A;
+            font-weight: 500;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+
+        button {
+            background: #18181F;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #A1A1AA;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-transform: capitalize;
+            transition: all 0.15s ease;
+
+            &:hover {
+                background: #22222D;
+                color: #FFFFFF;
+            }
+
+            &.active {
+                background: #8B5CF6;
+                color: #FFFFFF;
+                border-color: #8B5CF6;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    &__card {
+        background: #18181F;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        cursor: pointer;
+        transition: all 0.18s ease;
+        position: relative;
+
+        &:hover {
+            background: #20202B;
+            border-color: rgba(255, 255, 255, 0.16);
+
+            .library-section__play-overlay {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        &.active {
+            border-color: #8B5CF6;
+            background: rgba(139, 92, 246, 0.08);
+        }
+    }
+
+    &__card-img-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #0B0B0F;
+    }
+
+    &__card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__play-overlay {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #8B5CF6;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: all 0.18s ease;
+
+        svg {
+            margin-left: 2px;
+        }
+    }
+
+    &__card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+
+        span {
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #71717A;
+        }
+    }
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 1024px) {
+    .dashboard-main {
+        padding: 28px 24px 140px;
+        gap: 28px;
+    }
+
+    .dash-header__greeting {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .dashboard-main {
+        padding: 20px 16px 140px;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .dash-header__greeting {
+        font-size: 1.45rem;
+    }
+
+    .hero-match {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        gap: 16px;
+
+        &__artwork-wrap {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            aspect-ratio: 1;
+            margin: 0 auto;
+        }
+
+        &__content {
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 1.3rem;
+        }
+
+        &__actions {
+            width: 100%;
+
+            .hero-match__play-btn,
+            .hero-match__next-btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    }
+
+    .library-section__grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+    }
+}
+
+@media (max-width: 425px) {
+    .dashboard-main {
+        padding: 16px 12px 140px;
+    }
+
+    .vibe-section__pills {
+        gap: 8px;
+    }
+
+    .vibe-section__pill {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 0.82rem;
+    }
+
+    .library-section__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .library-section__card {
+        padding: 8px;
+    }
+}
