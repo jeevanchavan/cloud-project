@@ -11,6 +11,10 @@ app.use(cors({
     credentials: true
 }))
 
+app.get("/health", (req, res) => {
+    res.send("Welcome to VibeTrack API");
+})
+
 /**
  * Routes
  */
