@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vibetrack-config
+  namespace: vibetrack
+data:
+  REDIS_HOST: "redis-service"
+  REDIS_PORT: "6379"
+  NODE_ENV: "production"
+  IMAGEKIT_URL_ENDPOINT: "https://ik.imagekit.io/jeevan7273"
